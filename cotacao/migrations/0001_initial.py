@@ -32,7 +32,7 @@ class Migration(migrations.Migration):
                 ('quantidade', models.PositiveIntegerField(default=0, verbose_name='Quantidade')),
                 ('preco', models.DecimalField(decimal_places=2, max_digits=10, verbose_name='Preço')),
                 ('dataCompra', models.DateField(auto_now_add=True, verbose_name='Data de Compra')),
-                ('produto', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='cotacao.cadastrodeprodutos', verbose_name='Produto')),
+                ('produto', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='core.cadastrodeprodutos', verbose_name='Produto')),
             ],
             options={
                 'verbose_name': 'Compra de Produto',
