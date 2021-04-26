@@ -2,7 +2,7 @@ from django.db import models
 
 
 class CadastroDeProdutos(models.Model):
-    nome = models.CharField(max_length=255, verbose_name='Nome do Produto')
+    nome = models.CharField(max_length=255, verbose_name='Nome do Produto', unique=True)
     dataCadastro = models.DateField(auto_now_add=True)
     ativo = models.BooleanField(default=True)
 
@@ -13,12 +13,13 @@ class CadastroDeProdutos(models.Model):
         return self.dataCadastro.strftime('%d/%m/%Y')
 
     class Meta:
+        ordering = ['nome', '-dataCadastro']
         verbose_name = 'Cadastro de Produto'
         verbose_name_plural = 'Cadastro de Produtos'
 
 
 class CompraDeProdutos(models.Model):
-    produto = models.ForeignKey(CadastroDeProdutos, on_delete=models.CASCADE, verbose_name='Produto')
+    produto = models.ForeignKey('CadastroDeProdutos', on_delete=models.CASCADE, verbose_name='Produto')
     quantidade = models.PositiveIntegerField(default=0, verbose_name='Quantidade')
     preco = models.DecimalField(max_digits=10, decimal_places=2, verbose_name='Preço')
     dataCompra = models.DateField(auto_now_add=True, verbose_name='Data de Compra')

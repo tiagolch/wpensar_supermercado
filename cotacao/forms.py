@@ -1,7 +1,14 @@
-from django import forms
-# from .models import CompraDeProdutos, CadastroDeProdutos
+from django.forms import ModelForm
+from .models import CompraDeProdutos, CadastroDeProdutos
 
 
-class CadastroDeProdutosForm(forms.ModelForm):
-    nome = forms.CharField(required=True, initial='Nome do Produto')
+class CadastroDeProdutosForm(ModelForm):
+    class Meta:
+        model = CadastroDeProdutos
+        fields = ['nome',]
 
+
+class CompraDeProdutosForm(ModelForm):
+    class Meta:
+        model = CompraDeProdutos
+        fields = ['produto', 'quantidade', 'preco']
