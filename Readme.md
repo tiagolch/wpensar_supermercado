@@ -12,3 +12,9 @@
 - Rodar `python manage.py makemigrations` e em seguida `python manage.py migrate`
 - Criar o usuario admin com `python manage.py createsuperuser` e seguir o que se pede.
 - Rodar `pyhton manage.py runserver`, pronto sua aplicação esta rodando.
+
+
+Heroku:
+https://wpensar-supermercado.herokuapp.com/NovoCadastroProdutos/
+Login: admin
+Senha: 123@mudar
