@@ -2,17 +2,17 @@
 {% block title%}Login{%endblock%}
 
 {%block content%}
-<h1>Login</h1>
-<form method="post">
+<div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+  <div class="card-header">Login</div>
+  <div class="card-body">
+    <form action="{%url 'login'%}" method="post">
     <div class="login-form">
-        <form action="{%url 'login'%}" method="post">
             {%csrf_token%}
             {{form.as_p}}
             <input type="hidden" name="next" value="{{next}}"/>
             <input type="submit" value="Login">
-        </form>
     </div>
-
-</form>
+</form></div>
 
 {%endblock%}
+

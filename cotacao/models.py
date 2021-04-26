@@ -30,7 +30,9 @@ class CompraDeProdutos(models.Model):
     def get_dataCompra(self):
         return self.dataCompra.strftime('%d/%m/%Y')
 
+
     class Meta:
         ordering = ['produto', '-preco']
         verbose_name = 'Compra de Produto'
         verbose_name_plural = 'Compra de Produtos'
+

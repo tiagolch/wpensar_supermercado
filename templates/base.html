@@ -9,28 +9,33 @@
     <title>{%block title%}{%endblock%}</title>
 </head>
 <body>
+<section>
+  <nav class="nav nav-pills nav-justified">
+  <a class="nav-link active" href="{%url 'novoCadastroProdutos'%}}">Cadastro de Produto</a>
+  <a class="nav-link" href="#">Link nav muito mais longo</a>
+  <a class="nav-link" href="#">Link</a>
+  <a class="nav-link disabled" href="#">Desativado</a>
+</nav>
+
+</section>
+
+
+
 
 <div content="container-fluid">
-    <div class="row">
-        <div class="col">
+  <div class="row">
+    <div class="col-sm">
 
-        </div>
-        <div class="col">
-        </div>
     </div>
-    <div class="row">
-        <div class="col">
-        </div>
-        <div class="col">
+    <div class="col-sm">
             {%block content%}
             {%endblock%}
-        </div>
-        <div class="col">
+    </div>
+    <div class="col-sm">
+
     </div>
   </div>
-
 </div>
-
 
 
 
