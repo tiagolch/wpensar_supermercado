@@ -5,7 +5,7 @@
 - Clonar projeto.
 - Criar a virtual env `virtualenv -p python3 .vEnv`
 - Ativar o virtualização `..vEnv/bin/activate`
-- Instalar django, djangorestframework e django-filter `pip install -r requirements-dev.txt`
+- Instalar django `pip install -r requirements-dev.txt`
 
 - Adicionar `cotacao` e `accounts` ao INSTALLED_APPS em Settings.
 
