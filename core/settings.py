@@ -31,7 +31,7 @@ DEBUG = config('DEBUG', default=False, cast=bool)
 # SECURITY WARNING: don't run with debug turned on in production!
 
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['wpensar-supermercado.herokuapp.com','localhost:8000']
 
 
 # Application definition
