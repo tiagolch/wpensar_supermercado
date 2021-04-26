@@ -6,7 +6,7 @@ from .views import *
 urlpatterns = [
     path('i', TemplateView.as_view(template_name='index.html'), name='index'),
     path('listagemCadastroProdutos/', CadastroDeProdutoList, name='listagemCadastroProdutos'),
-    path('novoCadastroProdutos/', CadastroDeProdutoNovo, name='novoCadastroProdutos'),
+    path('NovoCadastroProdutos/', CadastroDeProdutoNovo, name='NovoCadastroProdutos'),
     path('atualizaCadastroProdutos/<int:id>/', CadastroDeProdutoAtualiza, name='atualizaCadastroProdutos'),
     path('deleteCadastroProdutos/<int:id>/', CadastroDeProdutoDeleta, name='deleteCadastroProdutos'),
 

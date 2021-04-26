@@ -9,12 +9,12 @@
     <title>{%block title%}{%endblock%}</title>
 </head>
 <body>
-<section>
+<section class="container">
   <nav class="nav nav-pills nav-justified">
-  <a class="nav-link active" href="{%url 'novoCadastroProdutos'%}}">Cadastro de Produto</a>
-  <a class="nav-link" href="#">Link nav muito mais longo</a>
-  <a class="nav-link" href="#">Link</a>
-  <a class="nav-link disabled" href="#">Desativado</a>
+      <a class="nav-link " href="{%url 'NovoCadastroProdutos'%}"><button class="btn btn-outline-primary">Cadastro de Produto</button></a>
+  <a class="nav-link" href="{%url 'novaCompraDeProdutos'%}"><button class="btn btn-outline-primary">Nova Compra de Produto</button></a>
+  <a class="nav-link" href="{%url 'listagemCadastroProdutos'%}"><button class="btn btn-outline-primary">Lista de Cadastro de Produtos</button></a>
+  <a class="nav-link " href="{%url 'listagemCompraDeProdutos'%}"><button class="btn btn-outline-primary">Lita de Compras de Produtos</button></a>
 </nav>
 
 </section>

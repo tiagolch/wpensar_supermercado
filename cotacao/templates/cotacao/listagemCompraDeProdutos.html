@@ -2,16 +2,29 @@
 {%block title%}Lista de Compras{%endblock%}
 {%block content%}
 
-<ul>
-    {%for produto in produtos %}
-        <li>
-        <a href="{%url 'atualizaCompraDeProdutos' produto.id%}"><p>{{produto.produto}}</p></a>
-     <p>{{produto.quantidade}}</p>
-     <p>{{produto.preco}}</p>
-   <a href="{%url 'deletaCompraDeProdutos' produto.id%}"><p>>>Deletar</p></a>
-    </li>
-    {%endfor%}
-</ul>
-<a href="{%url 'novaCompraDeProdutos'%}">Nova Compra de Produto</a>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Produto</th>
+      <th scope="col">Quantidade</th>
+      <th scope="col">Preco</th>
+<!--      <th scope="col">Preço Medio</th>-->
+      <th scope="col">Data</th>
+    </tr>
+  </thead>
+  <tbody>
+  {%for produto in produtos %}
+    <tr>
+      <th scope="row">{{produto.id}}</th>
+      <td>{{produto.produto}}</td>
+      <td>{{produto.quantidade}}</td>
+      <td>{{produto.preco}}</td>
+<!--      <td>{{produto.preco_medio}}</td>-->
+      <td>{{produto.get_dataCompra}}</td>
+    </tr>
+  {%endfor%}
+  </tbody>
+</table>
+<a href="{%url 'novaCompraDeProdutos'%}"><button class="btn btn-outline-primary">Nova Compra de Produto</button></a>
 {%endblock%}
-

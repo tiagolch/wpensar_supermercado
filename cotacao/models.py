@@ -20,8 +20,9 @@ class CadastroDeProdutos(models.Model):
 
 class CompraDeProdutos(models.Model):
     produto = models.ForeignKey('CadastroDeProdutos', on_delete=models.CASCADE, verbose_name='Produto')
-    quantidade = models.PositiveIntegerField(default=0, verbose_name='Quantidade')
+    quantidade = models.PositiveIntegerField(default=1, verbose_name='Quantidade')
     preco = models.DecimalField(max_digits=10, decimal_places=2, verbose_name='Preço')
+    preco_medio = models.DecimalField(max_digits=10, decimal_places=2, verbose_name='Preço Medio de Compra')
     dataCompra = models.DateField(auto_now_add=True, verbose_name='Data de Compra')
 
     def __str__(self):
@@ -29,6 +30,13 @@ class CompraDeProdutos(models.Model):
 
     def get_dataCompra(self):
         return self.dataCompra.strftime('%d/%m/%Y')
+
+    # def CompraDeProdutoList2(request):
+    #     media = CompraDeProdutos.objects.aggregate(media_preco=AVG(F('produto') * F('preco')))
+    #     dados = {
+    #         'produtos': media
+    #     }
+    #     super(dados).save()
 
 
     class Meta:

@@ -1,9 +1,14 @@
 {% extends '../base.html' %}
 
 {%block content%}
-    <form  method="post" enctype="multipart/form-data">
+   <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+  <div class="card-header">Login</div>
+  <div class="card-body">
+     <form  method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{form.as_p}}
         <button type="submit">Salvar</button>
     </form>
+  </div>
 {%endblock%}
+

@@ -4,6 +4,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .forms import CompraDeProdutosForm, CadastroDeProdutosForm
 from .models import CadastroDeProdutos, CompraDeProdutos
 
+
 '''Listagem'''
 @login_required()
 def CadastroDeProdutoList(request):
