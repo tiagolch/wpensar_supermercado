@@ -1,4 +1,8 @@
 from django.db import models
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+from django.db.models import Avg, aggregates, Sum, F, Count,Q
+
 
 
 class CadastroDeProdutos(models.Model):
@@ -22,7 +26,7 @@ class CompraDeProdutos(models.Model):
     produto = models.ForeignKey('CadastroDeProdutos', on_delete=models.CASCADE, verbose_name='Produto')
     quantidade = models.PositiveIntegerField(default=1, verbose_name='Quantidade')
     preco = models.DecimalField(max_digits=10, decimal_places=2, verbose_name='Preço')
-    preco_medio = models.DecimalField(max_digits=10, decimal_places=2, verbose_name='Preço Medio de Compra')
+    preco_medio = models.DecimalField(max_digits=10, decimal_places=2, verbose_name='Preço Medio de Compra', blank=True, null=True)
     dataCompra = models.DateField(auto_now_add=True, verbose_name='Data de Compra')
 
     def __str__(self):
@@ -31,13 +35,11 @@ class CompraDeProdutos(models.Model):
     def get_dataCompra(self):
         return self.dataCompra.strftime('%d/%m/%Y')
 
-    # def CompraDeProdutoList2(request):
-    #     media = CompraDeProdutos.objects.aggregate(media_preco=AVG(F('produto') * F('preco')))
-    #     dados = {
-    #         'produtos': media
-    #     }
-    #     super(dados).save()
+    def save(self, *args, **kwargs):
+        preco_medio = CompraDeProdutos.objects.filter(produto=self.produto).aggregate(Avg('preco'))
+        self.preco_medio=preco_medio['preco__avg']
 
+        super().save(*args, **kwargs)
 
     class Meta:
         ordering = ['produto', '-preco']
