@@ -1,0 +1,16 @@
+{%extends '../base.html'%}
+{%block title%}Lista de Compras{%endblock%}
+{%block content%}
+
+<ul>
+    {%for produto in produtos %}
+        <li>
+        <a href="{%url 'atualizaCompraDeProdutos' produto.id%}"><p>{{produto.produto}}</p></a>
+     <p>{{produto.quantidade}}</p>
+     <p>{{produto.preco}}</p>
+   <a href="{%url 'deletaCompraDeProdutos' produto.id%}"><p>>>Deletar</p></a>
+    </li>
+    {%endfor%}
+</ul>
+<a href="{%url 'novaCompraDeProdutos'%}">Nova Compra de Produto</a>
+{%endblock%}
