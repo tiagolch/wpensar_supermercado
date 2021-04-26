@@ -38,7 +38,6 @@ class CompraDeProdutos(models.Model):
     def save(self, *args, **kwargs):
         preco_medio = CompraDeProdutos.objects.filter(produto=self.produto).aggregate(Avg('preco'))
         self.preco_medio=preco_medio['preco__avg']
-
         super().save(*args, **kwargs)
 
     class Meta:
